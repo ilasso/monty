@@ -11,6 +11,7 @@
 #define BAD_INSTR "L%d: unknown instruction %s\n"
 #define BAD_PUSH "L%d: usage: push integer\n"
 #define BAD_PINT "L%d: can't pint, stack empty\n"
+#define BAD_POP "L%d: can't pop an empty stack\n"
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -60,5 +61,6 @@ stack_t *allocNewNode(char *data);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 void freeStack(void);
 #endif /*MONTY*/

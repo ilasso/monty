@@ -32,7 +32,12 @@ int Validations(char **Words)
 	{
 		if (top == NULL)
 			return (4);
+	}
 
+	if (strcmp(Words[0], "pop") == 0)
+	{
+		if (top == NULL)
+			return (5);
 	}
 
 return (0);
