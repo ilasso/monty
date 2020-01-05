@@ -1,37 +1,48 @@
+/**
+ * ProcessFile- read and process monty file
+ * @FileName: Name of file to process
+ * Return: void
+ * Author - Ivan Dario Lasso - Cohort 10 - Cali
+ **/
+
 #include "monty.h"
+
 void ProcessFile(char *FileName)
 {
 	FILE *fp;
 	char *fileline = NULL;
-	char *Orifileline = NULL;
 	size_t sizebuf;
-	ssize_t Qchar; 
-	static int idxLine = 0;
+	ssize_t Qchar;
+	int idxLine = 0;
 	char **Words;
 
-	(void) (Words);
-	(void) (Orifileline);
+	fp = fopen(FileName, "r");
 
-	fp = fopen(FileName,"r");
-	
-	if (fp == NULL)
+	if (fp == NULL || (access(FileName, R_OK) == -1))
 	{
-		fprintf(stderr, "Error: Can't open file %s\n",FileName);
+		fprintf(stderr, BAD_FILE, FileName);
 		exit(EXIT_FAILURE);
 	}
-	while ((Qchar = getline(&fileline,&sizebuf,fp)) != EOF)
+	while ((Qchar = getline(&fileline, &sizebuf, fp)) != EOF)
 	{
-		Orifileline = _strdup(fileline);
 		idxLine++;
-		Words = ParseMontyCmd(fileline,"\n\t ",Qchar);
-		/*printf("%d|%s",idxLine,Orifileline);*/
 
+		Words = ParseMontyCmd(fileline, "\n\t ", Qchar);
+
+		if (Words[0] == NULL)
+		{
+			free(Words);
+			free(fileline);
+			fileline = NULL;
+			continue;
+		}
+		errors(ExecInstruction(Words, idxLine), Words, idxLine, fileline, fp);
+		free(fileline);
+		fileline = NULL;
+		free(Words);
 	}
-/*		printf("\n\n1=%s\n",Words[0]);
-		printf("\n\n2=%s\n",Words[1]);
-		printf("\n\n3=%s\n",Words[2]);
-		printf("\n\n4=%s\n",Words[3]);
-		printf("\n\n5=%s\n",Words[4]);
-		printf("\n\n6=%s\n",Words[5]);*/
+	fclose(fp);
 	free(fileline);
+	freeStack();
 }
+

@@ -4,6 +4,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <ctype.h>
+#define BAD_ARGUMENTS "USAGE: monty file\n"
+#define BAD_FILE "Error: Can't open file %s\n"
+#define BAD_ALLOC "Error: malloc failed\n"
+#define BAD_INSTR "L%d: unknown instruction %s\n"
+#define BAD_PUSH "L%d: usage: push integer\n"
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -15,11 +21,11 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
-
+extern stack_t *top;
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -30,11 +36,13 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
 void ProcessFile(char *FileName);
-char **ParseMontyCmd(char *line, char *separator,ssize_t Qchar);
+char **ParseMontyCmd(char *line, char *separator, ssize_t Qchar);
+void errors(int errn, char **Words, unsigned int ln, char *fileline, FILE *fp);
 void _puts(char *str);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
@@ -44,4 +52,10 @@ int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 int _strncmp(char *s1, char *s2, int n);
 int _putchar(char c);
+int Validations(char **Words);
+int ExecInstruction(char **Words, unsigned int linenumber);
+stack_t *allocNewNode(char *data);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void freeStack(void);
 #endif /*MONTY*/
