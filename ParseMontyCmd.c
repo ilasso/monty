@@ -5,7 +5,7 @@
  * @separator: separator to parse
  * @Qchar: Quantity char to alloc
  * Return: Return monty instruct parsed
- * Authors - Ivan Dario Lasso - Cohort 10 - Cali
+ * Author - Ivan Dario Lasso - Cohort 10 - Cali
  **/
 
 char **ParseMontyCmd(char *line, char *separator, ssize_t Qchar)

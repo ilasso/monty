@@ -3,7 +3,7 @@
  * @stack: new element to push to stack
  * @line_number: number of line into monty file
  * Return: void
- * Authors - Ivan Dario Lasso - Cohort 10 - Cali
+ * Author - Ivan Dario Lasso - Cohort 10 - Cali
  **/
 
 #include "monty.h"

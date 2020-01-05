@@ -14,6 +14,10 @@
 #define BAD_POP "L%d: can't pop an empty stack\n"
 #define BAD_SWAP "L%d: can't swap, stack too short\n"
 #define BAD_ADD "L%d: can't add, stack too short\n"
+#define BAD_SUB "L%d: can't sub, stack too short\n"
+#define BAD_MUL "L%d: can't mul, stack too short\n"
+#define BAD_DIV "L%d: can't div, stack too short\n"
+#define BAD_DIV0 "L%d: division by zero\n"
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -48,6 +52,7 @@ typedef struct instruction_s
 void ProcessFile(char *FileName);
 char **ParseMontyCmd(char *line, char *separator, ssize_t Qchar);
 void errors(int errn, char **Words, unsigned int ln, char *fileline, FILE *fp);
+void errors2(int err, char **Words, unsigned int ln, char *fileline, FILE *fp);
 void _puts(char *str);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
@@ -66,6 +71,9 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void divide(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void freeStack(void);
 #endif /*MONTY*/

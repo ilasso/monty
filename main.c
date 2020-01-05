@@ -10,14 +10,12 @@ stack_t *top = NULL;
 
 int main(int argc, char **argv)
 {
-
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: monty file\n");
+		fprintf(stderr, BAD_ARGUMENTS);
 		return (EXIT_FAILURE);
 	}
 
 	ProcessFile(argv[1]);
-
 return (0);
 }

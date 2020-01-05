@@ -3,7 +3,8 @@
  * @Words: Parsed Monty Instruction
  * @linenumber: number line into file
  * Return: 3 bad push integer, 2 bad instr, 1 bad alloc, 0 succed
- *	   4 empty list in pitn, 5 empty list in pop
+ *	   4 empty list in pitn, 5 empty list in pop, 6 at least 2 nodes swap,
+ *	   7 at least two nodes add
  * Author - Ivan Dario Lasso - Cohort 10 - Cali
  **/
 
@@ -14,7 +15,9 @@ int ExecInstruction(char **Words, unsigned int linenumber)
 	instruction_t opcode[] = {{"push", push}, {"pall", pall},
 				  {"pint", pint}, {"pop", pop},
 				  {"swap", swap}, {"nop", nop},
-				  {"add", add},   {NULL, NULL} };
+				  {"add", add},   {"sub", sub},
+				  {"mul", mul},  {"div", divide},
+				  {NULL, NULL} };
 	int i;
 	int foundInstr = 0;
 	int valStatus = 0;
@@ -40,7 +43,6 @@ int ExecInstruction(char **Words, unsigned int linenumber)
 				opcode[i].f(&top, linenumber);
 		}
 	}
-
 	if (!foundInstr)
 	{
 		return (2);

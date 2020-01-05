@@ -1,5 +1,6 @@
 /**
- * swap - swaps the top two elements of the stack
+ * divide - divides the second top element of the stack by the
+ *	 top element of the stack.
  * @stack: new element to push to stack
  * @line_number: number of line into monty file
  * Return: void
@@ -7,13 +8,15 @@
  **/
 
 #include "monty.h"
-void swap(stack_t **stack, unsigned int line_number)
+void divide(stack_t **stack, unsigned int line_number)
 {
 
 	stack_t *Top;
 	stack_t *prev;
+	int sub;
 
 	(void)(line_number);
+
 
 	if (top == NULL)
 	{
@@ -23,9 +26,9 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	Top = top;
 	prev = top->next;
-	top->prev = prev;
-	top->next = prev->next;
-	prev->prev = NULL;
-	prev->next = Top;
+
+	sub = prev->n - (*stack)->n;
 	top = prev;
+	top->n = sub;
+	free(Top);
 }

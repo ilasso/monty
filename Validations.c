@@ -4,12 +4,14 @@
  * Return: Return 3 bad push integer
  * Author - Ivan Dario Lasso - Cohort 10 - Cali
  **/
+int Validations2(char **Words);
 
 #include "monty.h"
 int Validations(char **Words)
 {
 	char *s;
 	int i;
+	int val2 = 0;
 
 	if (strcmp(Words[0], "push") == 0)
 	{
@@ -39,12 +41,43 @@ int Validations(char **Words)
 		if (top == NULL || top->next == NULL)
 			return (6);
 	}
+	val2 = Validations2(Words);
+
+	if (val2)
+		return (val2);
+
+	if (strcmp(Words[0], "nop") == 0)
+		return (99);
+return (0);
+}
+/**
+ * Validations2 - Monty instruction validations
+ * @Words: monty instruction to parsed
+ * Return: Return 3 bad push integer
+ * Author - Ivan Dario Lasso - Cohort 10 - Cali
+ **/
+
+int Validations2(char **Words)
+{
 	if (strcmp(Words[0], "add") == 0)
 	{
 		if (top == NULL || top->next == NULL)
 			return (7);
 	}
-	if (strcmp(Words[0], "nop") == 0)
-		return (8);
+	if (strcmp(Words[0], "sub") == 0)
+	{
+		if (top == NULL || top->next == NULL)
+			return (8);
+	}
+	if (strcmp(Words[0], "mul") == 0)
+	{
+		if (top == NULL || top->next == NULL)
+			return (9);
+	}
+	if (strcmp(Words[0], "div") == 0)
+	{
+		if (top == NULL || top->next == NULL)
+			return (10);
+	}
 return (0);
 }

@@ -4,9 +4,7 @@
  * Return: void
  * Author - Ivan Dario Lasso - Cohort 10 - Cali
  **/
-
 #include "monty.h"
-
 void ProcessFile(char *FileName)
 {
 	FILE *fp;
@@ -15,6 +13,7 @@ void ProcessFile(char *FileName)
 	ssize_t Qchar;
 	int idxLine = 0;
 	char **Words;
+	int statExe = 0;
 
 	fp = fopen(FileName, "r");
 
@@ -36,7 +35,9 @@ void ProcessFile(char *FileName)
 			fileline = NULL;
 			continue;
 		}
-		errors(ExecInstruction(Words, idxLine), Words, idxLine, fileline, fp);
+		statExe = ExecInstruction(Words, idxLine);
+		errors(statExe, Words, idxLine, fileline, fp);
+		errors2(statExe, Words, idxLine, fileline, fp);
 		free(fileline);
 		fileline = NULL;
 		free(Words);

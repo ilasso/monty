@@ -19,5 +19,4 @@ stack_t *allocNewNode(char *data)
 	newtop->prev = NULL;
 	newtop->next = NULL;
 return (newtop);
-
 }
