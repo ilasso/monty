@@ -8,7 +8,6 @@
  * Return: void
  * Authors - Ivan Dario Lasso - Cohort 10 - Cali
  **/
-
 #include "monty.h"
 void errors(int errorcode, char **Words, unsigned int linenumber,
 char *fileline, FILE *fp)
@@ -20,7 +19,6 @@ char *fileline, FILE *fp)
 			freeStack();
 			exit(EXIT_FAILURE);
 		}
-
 		switch (errorcode)
 		{
 			case 1:
@@ -41,6 +39,9 @@ char *fileline, FILE *fp)
 			case 6:
 				fprintf(stderr, BAD_SWAP, linenumber);
 				break;
+			case 7:
+				fprintf(stderr, BAD_ADD, linenumber);
+				break;
 			default:
 				return;
 
@@ -50,5 +51,4 @@ char *fileline, FILE *fp)
 		freeStack();
 		fclose(fp);
 		exit(EXIT_FAILURE);
-
 }

@@ -13,6 +13,7 @@
 #define BAD_PINT "L%d: can't pint, stack empty\n"
 #define BAD_POP "L%d: can't pop an empty stack\n"
 #define BAD_SWAP "L%d: can't swap, stack too short\n"
+#define BAD_ADD "L%d: can't add, stack too short\n"
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -64,6 +65,7 @@ void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void freeStack(void);
 #endif /*MONTY*/

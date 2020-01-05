@@ -13,8 +13,8 @@ int ExecInstruction(char **Words, unsigned int linenumber)
 	stack_t *newtop;
 	instruction_t opcode[] = {{"push", push}, {"pall", pall},
 				  {"pint", pint}, {"pop", pop},
-				  {"swap", swap},  {"nop", nop},
-				  {NULL, NULL} };
+				  {"swap", swap}, {"nop", nop},
+				  {"add", add},   {NULL, NULL} };
 	int i;
 	int foundInstr = 0;
 	int valStatus = 0;

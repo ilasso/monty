@@ -36,9 +36,13 @@ int Validations(char **Words)
 	}
 	if (strcmp(Words[0], "swap") == 0)
 	{
-
 		if (top == NULL || top->next == NULL)
 			return (6);
+	}
+	if (strcmp(Words[0], "add") == 0)
+	{
+		if (top == NULL || top->next == NULL)
+			return (7);
 	}
 	if (strcmp(Words[0], "nop") == 0)
 		return (8);
