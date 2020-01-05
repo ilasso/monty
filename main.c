@@ -1,3 +1,5 @@
+#include "monty.h"
+stack_t *top = NULL;
 /**
  * main - monty 0.98 interprete
  * @argc: Number of Arguments
@@ -6,8 +8,6 @@
  * Author - Ivan Dario Lasso - Cohort 10 - Cali
  **/
 
-#include "monty.h"
-stack_t *top = NULL;
 int main(int argc, char **argv)
 {
 
