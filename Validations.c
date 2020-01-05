@@ -28,6 +28,12 @@ int Validations(char **Words)
 			}
 		}
 	}
+	if (strcmp(Words[0], "pint") == 0)
+	{
+		if (top == NULL)
+			return (4);
+
+	}
 
 return (0);
 }

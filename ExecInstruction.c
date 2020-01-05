@@ -10,14 +10,22 @@
 int ExecInstruction(char **Words, unsigned int linenumber)
 {
 	stack_t *newtop;
-	instruction_t opcode[] = {{"push", push}, {"pall", pall}, {NULL, NULL}};
+	instruction_t opcode[] = {
+					{"push", push},
+					{"pall", pall},
+					{"pint", pint},
+					{NULL, NULL}
+				};
 	int i;
 	int foundInstr = 0;
+	int valStatus = 0;
 
 	(void)(newtop);
 
-	if (Validations(Words))
-		return (3);
+	valStatus = Validations(Words);
+
+	if (valStatus)
+		return (valStatus);
 
 	for (i = 0; opcode[i].opcode != NULL; i++)
 	{
