@@ -78,6 +78,8 @@ int Validations2(char **Words)
 	{
 		if (top == NULL || top->next == NULL)
 			return (10);
+		if (top->n == 0)
+			return (11);
 	}
 return (0);
 }

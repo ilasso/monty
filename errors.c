@@ -81,6 +81,9 @@ void errors2(int err, char **Words, unsigned int ln, char *fileline, FILE *fp)
 			case 10:
 				fprintf(stderr, BAD_DIV, ln);
 				break;
+			case 11:
+				fprintf(stderr, BAD_DIV0, ln);
+				break;
 			default:
 				return;
 		}

@@ -13,7 +13,7 @@ void divide(stack_t **stack, unsigned int line_number)
 
 	stack_t *Top;
 	stack_t *prev;
-	int sub;
+	int div;
 
 	(void)(line_number);
 
@@ -27,8 +27,8 @@ void divide(stack_t **stack, unsigned int line_number)
 	Top = top;
 	prev = top->next;
 
-	sub = prev->n - (*stack)->n;
+	div = prev->n / (*stack)->n;
 	top = prev;
-	top->n = sub;
+	top->n = div;
 	free(Top);
 }
