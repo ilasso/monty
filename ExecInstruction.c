@@ -16,6 +16,7 @@ int ExecInstruction(char **Words, unsigned int linenumber)
 					{"pall", pall},
 					{"pint", pint},
 					{"pop", pop},
+					{"nop", nop},
 					{NULL, NULL}
 				};
 	int i;
