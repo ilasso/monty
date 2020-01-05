@@ -38,6 +38,9 @@ char *fileline, FILE *fp)
 			case 5:
 				fprintf(stderr, BAD_POP, linenumber);
 				break;
+			case 6:
+				fprintf(stderr, BAD_SWAP, linenumber);
+				break;
 			default:
 				return;
 

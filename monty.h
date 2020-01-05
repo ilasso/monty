@@ -12,6 +12,7 @@
 #define BAD_PUSH "L%d: usage: push integer\n"
 #define BAD_PINT "L%d: can't pint, stack empty\n"
 #define BAD_POP "L%d: can't pop an empty stack\n"
+#define BAD_SWAP "L%d: can't swap, stack too short\n"
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -62,6 +63,7 @@ void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void freeStack(void);
 #endif /*MONTY*/
