@@ -81,5 +81,12 @@ int Validations2(char **Words)
 		if (top->n == 0)
 			return (11);
 	}
+	if (strcmp(Words[0], "mod") == 0)
+	{
+		if (top == NULL || top->next == NULL)
+			return (12);
+		if (top->n == 0)
+			return (11);
+	}
 return (0);
 }

@@ -17,7 +17,7 @@ int ExecInstruction(char **Words, unsigned int linenumber)
 				  {"swap", swap}, {"nop", nop},
 				  {"add", add},   {"sub", sub},
 				  {"mul", mul},  {"div", divide},
-				  {NULL, NULL} };
+				  {"mod", mod}, {NULL, NULL} };
 	int i;
 	int foundInstr = 0;
 	int valStatus = 0;
