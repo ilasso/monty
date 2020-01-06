@@ -88,5 +88,12 @@ int Validations2(char **Words)
 		if (top->n == 0)
 			return (11);
 	}
+	if (strcmp(Words[0], "pchar") == 0)
+	{
+		if (top == NULL)
+			return (14);
+		if (top->n < 0 || top->n > 127)
+			return (13);
+	}
 return (0);
 }

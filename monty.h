@@ -19,6 +19,8 @@
 #define BAD_DIV "L%d: can't div, stack too short\n"
 #define BAD_DIV0 "L%d: division by zero\n"
 #define BAD_MOD "L%d: can't mod, stack too short\n"
+#define BAD_PCHAR13 "L%d: can't pchar, value out of range\n"
+#define BAD_PCHAR14  "L%d: can't pchar, stack empty\n"
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -76,6 +78,7 @@ void sub(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void divide(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void freeStack(void);
 #endif /*MONTY*/

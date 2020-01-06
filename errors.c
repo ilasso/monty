@@ -87,6 +87,12 @@ void errors2(int err, char **Words, unsigned int ln, char *fileline, FILE *fp)
 			case 12:
 				fprintf(stderr, BAD_MOD, ln);
 				break;
+			case 13:
+				fprintf(stderr, BAD_PCHAR13, ln);
+				break;
+			case 14:
+				fprintf(stderr, BAD_PCHAR14, ln);
+				break;
 			default:
 				return;
 		}
