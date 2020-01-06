@@ -28,7 +28,9 @@ void ProcessFile(char *FileName)
 
 		Words = ParseMontyCmd(fileline, "\n\t ", Qchar);
 
-		if (Words[0] == NULL || (strcmp(Words[0], "nop") == 0))
+		if (Words[0] == NULL ||
+			(strcmp(Words[0], "nop") == 0) ||
+			(strncmp(Words[0], "#", 1) == 0))
 		{
 			free(Words);
 			free(fileline);
